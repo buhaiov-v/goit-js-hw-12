@@ -61,17 +61,19 @@ export async function apiGetImage(inputValue) {
             const list = document.querySelector('.gallery__item');
             const rect = list.getBoundingClientRect();
             window.scrollBy({
-                top: rect.height * 3,
+                top: rect.height * 2,
                 behavior: 'smooth',
             })
         }
 		
 	}
     catch (error) {
+        console.error(error);
         gallery.innerHTML = '';
+        load.innerHTML = '';
           iziToast.show({
       ...iziOption,
-      message: 'Sorry, an error happened. Try again',
+              message: 'Sorry, an error happened. Try again',
     });
     }
 }
